@@ -175,7 +175,7 @@
 							</section>
 
 										<div class="difimage">
-											<a href="./login2" class="image fit"></a>
+											<a id="myDynamicLink" class="image fit"></a>
 										</div><br>
 
 						<!-- Footer -->
@@ -247,6 +247,30 @@
 			</section>
 			<!--</div>-->
 
+
+			<script>
+  			// Get a reference to the link element
+			const myLink = document.getElementById('myDynamicLink');
+
+			// Function to update the link based on orientation
+			function updateLinkHref() {
+  				const orientation = screen.orientation.type;
+
+  				if (orientation.startsWith('portrait')) {
+   				 myLink.href = 'waxing.html';
+  				} else if (orientation.startsWith('landscape')) {
+    			myLink.href = 'login2.html';
+  				}
+			}
+
+			// Initial call to set the link on page load
+			updateLinkHref();
+
+			// Add event listener for orientation changes
+			screen.orientation.addEventListener('change', updateLinkHref);
+			</script>
+
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -259,6 +283,7 @@
 	</body>
 
 </html>
+
 
 
 
