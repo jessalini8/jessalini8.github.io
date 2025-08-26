@@ -17,6 +17,12 @@
 			width: 100%;
 			content: url('images/about_bottom.png');
 		}
+		.parallax{
+			background: url(images/bg.JPG) fixed;
+			background-size: cover;
+  			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+		}
 		@media(orientation: portrait){
 			#counter-container{
 				width: 139.5px;
@@ -27,6 +33,16 @@
             div.difimage a{
 				width: 100%;
 				content: url('images/about_bottom_portrait.JPG');
+			}
+			.parallax{
+			z-index: -1;
+			background: url(images/bg.JPG);
+			height: 145vh;
+    		width: 100vw;
+    		position: absolute;
+    		background-size: cover;
+    		background-position: center;
+			padding-top: 12px;
 			}
 		}
 	</style>
@@ -43,7 +59,8 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<!--<div id="wrapper">-->
+			<section class="parallax">
 
 				<!-- Header -->
 					<header id="header">
@@ -135,7 +152,8 @@
 						<ul><li></li><li><a href="https://html5up.net"></a></li></ul>
 					</div>
 
-			</div>
+			</section>
+			<!--</div>-->
 
 			<script>
   			// Get references to the HTML elements
@@ -173,3 +191,4 @@
 	</body>
 
 </html>
+
