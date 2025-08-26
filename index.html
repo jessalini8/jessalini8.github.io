@@ -22,6 +22,12 @@
 		.logo{
 			width: 30%;
 		}
+		.parallax{
+			background: url(images/bg.JPG) fixed;
+			background-size: cover;
+  			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+		}
 
 		@media(orientation: portrait){
 			.invert-image{
@@ -39,6 +45,12 @@
 			.logo{
 				width: 70%;
 			}
+			.parallax{
+			background: url(images/bg.JPG) fixed;
+			background-size: cover;
+  			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+			}
 		}
 	</style>
 
@@ -53,7 +65,8 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+			<!--<div id="wrapper" class="fade-in">-->
+			<section class="parallax">
 
 				<!-- Intro -->
 					<div id="intro">
@@ -211,14 +224,15 @@
 								415-747-4539</p>
 							</section><br>
 						</section>
-					</footer>
+					</footer><br><br><br>
 
 				<!-- Copyright -->
-					<div id="copyright">
+					<!--<div id="copyright">
 						<ul><li></li><li><a href="https://html5up.net"></a></li></ul>
-					</div>
+					</div>-->
 
-			</div>
+			<!--</div>-->
+			</section>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -232,3 +246,4 @@
 	</body>
 
 </html>
+
