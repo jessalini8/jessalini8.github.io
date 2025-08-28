@@ -22,12 +22,20 @@
 		.logo{
 			width: 30%;
 		}
-		.parallax{
+		/*.parallax{
 			background: url(images/background.JPG) fixed;
 			background-size: cover;
   			background-repeat: no-repeat;
   			background-blend-mode: multiply;
 			margin-top: -30px;
+		}*/
+		.back-video{
+			background-size: cover;
+			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+			position: fixed;
+			width: 100%;
+			z-index: -1;
 		}
 		#book{
 			transform: scale(0.18);
@@ -80,6 +88,7 @@
 		<!-- Wrapper -->
 			<!--<div id="wrapper" class="fade-in">-->
 			<section class="parallax">
+				<video loop="" autoplay="" muted="" src="images/custom_glow.mp4" class="back-video"></video>
 
 				<!-- Intro -->
 					<div id="intro">
@@ -284,6 +293,7 @@
 	</body>
 
 </html>
+
 
 
 
