@@ -88,7 +88,7 @@
 		<!-- Wrapper -->
 			<!--<div id="wrapper" class="fade-in">-->
 			<section class="parallax">
-				<video loop="" autoplay="" muted="" src="images/custom_glow.mp4" class="back-video"></video>
+				<video loop="" autoplay="" muted="" src="images/custom_glow.mp4" class="back-video" id="myvid"></video>
 
 				<!-- Intro -->
 					<div id="intro">
@@ -278,6 +278,27 @@
 
 			// Add event listener for orientation changes
 			screen.orientation.addEventListener('change', updateLinkHref);
+
+
+			// Get a reference to the vid element
+			const myVid = document.getElementById('myvid');
+
+			// Function to update the vid based on orientation
+			function updateVidSrc() {
+  				const orientation = screen.orientation.type;
+
+  				if (orientation.startsWith('portrait')) {
+   				 myvid.src = 'images/buccal_glow.mp4';
+  				} else if (orientation.startsWith('landscape')) {
+    			myvid.src = 'images/custom_glow.mp4';
+  				}
+			}
+
+			// Initial call to set the vid on page load
+			updateVidSrc();
+
+			// Add event listener for orientation changes
+			screen.orientation.addEventListener('change', updateVidSrc);
 			</script>
 
 		
@@ -293,6 +314,7 @@
 	</body>
 
 </html>
+
 
 
 
