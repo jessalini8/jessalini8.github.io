@@ -10,17 +10,25 @@
 		.logo{
 			width: 30%;
 		}
-		.parallax{
+		/*.parallax{
 			background: url(images/background.JPG) fixed;
 			background-size: cover;
   			background-repeat: no-repeat;
   			background-blend-mode: multiply;
+		}*/
+		.back-video{
+			background-size: cover;
+			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+			position: fixed;
+			width: 100%;
+			z-index: -1;
 		}
 		@media(orientation: portrait){
 			.logo{
 				width: 70%;
 			}
-			.parallax{
+			/*.parallax{
 			z-index: -1;
 			background: url(images/background.JPG);
 			height: 145vh;
@@ -28,6 +36,9 @@
     		position: absolute;
     		background-size: cover;
     		background-position: center;
+			margin-top: -35px;
+			}*/
+			.header{
 			margin-top: -35px;
 			}
 		}
@@ -45,9 +56,10 @@
 		<!-- Wrapper -->
 			<!--<div id="wrapper">-->
 			<section class="parallax">
+				<video loop="" autoplay="" muted="" src="images/background-vid_landscape2.mp4" class="back-video" id="myvid"></video>
 
 				<!-- Header -->
-                 <header id="header">
+                 <header id="header" class="header">
 						<a href="./" style="border: 1px;" class="logo"><img src="images/west-side-beauty.png" style="width: 100%; transform: scale(1.5);"></a>
 					</header>
 
@@ -88,6 +100,29 @@
 			</section>
 			<!--</div>-->
 
+			<script>
+			// Get a reference to the vid element
+			const myVid = document.getElementById('myvid');
+
+			// Function to update the vid based on orientation
+			function updateVidSrc() {
+  				const orientation = screen.orientation.type;
+
+  				if (orientation.startsWith('portrait')) {
+   				 myvid.src = 'images/background-vid_portrait2.mp4';
+  				} else if (orientation.startsWith('landscape')) {
+    			myvid.src = 'images/background-vid_landscape2.mp4';
+  				}
+			}
+
+			// Initial call to set the vid on page load
+			updateVidSrc();
+
+			// Add event listener for orientation changes
+			screen.orientation.addEventListener('change', updateVidSrc);
+			</script>
+
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -100,4 +135,5 @@
 	</body>
 
 </html>
+
 
