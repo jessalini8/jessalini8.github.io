@@ -17,11 +17,19 @@
 			width: 100%;
 			content: url('images/about_bottom.png');
 		}
-		.parallax{
+		/*.parallax{
 			background: url(images/background.JPG) fixed;
 			background-size: cover;
   			background-repeat: no-repeat;
   			background-blend-mode: multiply;
+		}*/
+		.back-video{
+			background-size: cover;
+			background-repeat: no-repeat;
+  			background-blend-mode: multiply;
+			position: fixed;
+			width: 100%;
+			z-index: -1;
 		}
 		.conatiner{
 			width: 100%;
@@ -45,7 +53,7 @@
 				width: 100%;
 				content: url('images/about_bottom_portrait.JPG');
 			}
-			.parallax{
+			/*.parallax{
 			z-index: -1;
 			background: url(images/background.JPG);
 			height: 145vh;
@@ -54,6 +62,9 @@
     		background-size: cover;
     		background-position: center;
 			margin-top: -35px
+			}*/
+			.header{
+			margin-top: -35px;
 			}
 		}
 	</style>
@@ -72,9 +83,10 @@
 		<!-- Wrapper -->
 			<!--<div id="wrapper">-->
 			<section class="parallax">
+				<video loop="" autoplay="" muted="" src="images/background-vid_landscape2.mp4" class="back-video" id="myvid"></video>
 
 				<!-- Header -->
-					<header id="header">
+					<header id="header" class="header">
 						<a href="./" style="border: 1px;" class="logo"><img src="images/west-side-beauty.png" style="width: 100%; transform: scale(1.5);"></a>
 					</header>
 
@@ -169,27 +181,25 @@
 			<!--</div>-->
 
 			<script>
-  			// Get references to the HTML elements
-  			const quantityDisplay = document.getElementById('quantityDisplay');
-  			const incrementButton = document.getElementById('incrementButton');
+  			// Get a reference to the vid element
+			const myVid = document.getElementById('myvid');
 
-  			// Initialize the quantity counter
-  			let currentQuantity = 1;
+			// Function to update the vid based on orientation
+			function updateVidSrc() {
+  				const orientation = screen.orientation.type;
 
-  			// Add an event listener to the button
-  			incrementButton.addEventListener('click', () => {
-   			 // Increment the quantity
-   			 currentQuantity++;
+  				if (orientation.startsWith('portrait')) {
+   				 myvid.src = 'images/background-vid_portrait2.mp4';
+  				} else if (orientation.startsWith('landscape')) {
+    			myvid.src = 'images/background-vid_landscape2.mp4';
+  				}
+			}
 
-   			 // Update the display
-   			 quantityDisplay.textContent = currentQuantity;
-  			});
+			// Initial call to set the vid on page load
+			updateVidSrc();
 
- 			 decrementButton.addEventListener('click', () => {
- 			   if (currentQuantity > 1) {
- 			   currentQuantity--;
- 			   quantityDisplay.textContent = currentQuantity;
- 			 }})
+			// Add event listener for orientation changes
+			screen.orientation.addEventListener('change', updateVidSrc);
 			</script>
 
 		<!-- Scripts -->
@@ -204,6 +214,7 @@
 	</body>
 
 </html>
+
 
 
 
